@@ -1,2 +1,2 @@
 test:
-	cutest ./tests/*_test.rb
+	cutest -r ./tests/helper.rb ./tests/*_test.rb

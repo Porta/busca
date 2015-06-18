@@ -1,4 +1,3 @@
-require File.expand_path("../lib/busca", File.dirname(__FILE__))
 
 scope do
     setup do

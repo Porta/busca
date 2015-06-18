@@ -15,3 +15,4 @@ As usual, you can install it using rubygems.
 ```
 $ gem install busca
 ```
+

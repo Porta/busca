@@ -48,5 +48,4 @@ end
 
 
 local results = search(words)
-
 return results

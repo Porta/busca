@@ -1,5 +1,3 @@
-require File.expand_path("../lib/busca", File.dirname(__FILE__))
-
 scope do
 
   setup do
@@ -72,7 +70,5 @@ Grace is here
     result = busca.search('grace')
     assert_equal result, [1, 2, 4]
   end
-
-
   
 end
