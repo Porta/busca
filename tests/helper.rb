@@ -1,5 +1,4 @@
 require "cutest"
-
 require_relative "../lib/busca"
 
 prepare do
