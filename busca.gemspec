@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name              = "busca"
-  s.version           = "0.0.2"
+  s.version           = "0.0.3"
   s.summary           = "Busca is a simple redis search"
   s.description       = "Busca is a simple redis search that uses bitmaps to index words"
   s.authors           = ["Julián Porta"]

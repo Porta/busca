@@ -20,7 +20,7 @@ local function namespace_keys(list)
 end
 
 local function temp_dest_key(words)
-  local temp_key = join(words, '_')  
+  local temp_key = join(words, '_')
   local cached_key = namespace .. ':query_cache:' .. temp_key
   
   local cached = redis.call('GET', cached_key)

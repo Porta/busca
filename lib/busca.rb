@@ -7,9 +7,9 @@ require 'filtra'
 class Busca
   NAMESPACE   = 'Busca' #TODO: Confirm gem name
   LUA_CACHE   = Hash.new { |h, k| h[k] = Hash.new }
-  LUA_INDEX   = File.expand_path("./lib/lua/index.lua")
-  LUA_SEARCH  = File.expand_path("./lib/lua/search.lua")
-  LUA_REMOVE  = File.expand_path("./lib/lua/remove.lua")
+  LUA_INDEX   = File.expand_path("../lua/index.lua", __FILE__)
+  LUA_SEARCH  = File.expand_path("../lua/search.lua", __FILE__)
+  LUA_REMOVE  = File.expand_path("../lua/remove.lua", __FILE__)
 
   attr_reader :namespace, :redis, :separa, :filtra
 
@@ -28,7 +28,7 @@ class Busca
 
   def index(document_id, string)
     words = split_and_filter(string)
-
+    return [] if words.empty?
     index_id = script( LUA_INDEX, 0,
        @namespace.to_msgpack,
        document_id.to_msgpack,
@@ -40,6 +40,7 @@ class Busca
 
   def search(string)
     words = split_and_filter(string)
+    return [] if words.empty?
     document_ids = script( LUA_SEARCH, 0,
        @namespace.to_msgpack,
        words.to_msgpack

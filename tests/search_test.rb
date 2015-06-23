@@ -62,6 +62,13 @@ Grace is here
     [busca, document, compare, control, chongo]
   end
 
+    test "searching an empty string" do |busca, document, compare, control, chongo|
+    first = busca.index(1, document)
+    result = busca.search('')
+    assert_equal result, []
+
+    end
+
   test "search a document" do |busca, document, compare, control, chongo|
     first = busca.index(1, document)
     second = busca.index(2, compare)
