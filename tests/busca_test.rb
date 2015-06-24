@@ -39,7 +39,6 @@ scope do
         assert_equal 1, document_id
         cinco = busca.search(dos: 'dos')
         assert_equal [1], cinco
-
     end
 
 end

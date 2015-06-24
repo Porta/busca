@@ -93,7 +93,23 @@ result = busca.search("breach")
 result == [123] #the identifier of the document.
 ```
 
+### Index/search a ruby object
 
+```ruby
+julian = {name: 'julian', lastname: 'porta', email: 'julian@porta.sh'}
+foo = {name: 'foo', lastname: 'bar', email: 'foo@bar.com'}
+marc = {name: 'marc', lastname: 'porta', email: 'marc@porta.sh'}
+
+separa_obj = Separa.new(Separa::Obj)
+busca = Busca.new(separa: separa_obj)
+
+busca.index(1, julian)
+busca.index(2, foo)
+busca.index(3, marc)
+
+matches = busca.search(lastname: 'porta')
+matches == [1, 3]
+```
 
 
 

@@ -1,5 +1,6 @@
 local namespace = cmsgpack.unpack(ARGV[1])
 local words     = cmsgpack.unpack(ARGV[2])
+local operator  = cmsgpack.unpack(ARGV[3])
 
 
 local function join(list, char)

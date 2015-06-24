@@ -41,15 +41,16 @@ class Busca
   def search(string)
     words = split_and_filter(string)
     return [] if words.empty?
+    operator ||= 'AND' #NOTE: leaving this here to add support for different operators
     document_ids = script( LUA_SEARCH, 0,
        @namespace.to_msgpack,
-       words.to_msgpack
+       words.to_msgpack,
+       operator.to_msgpack
       )
     bitstring = document_ids.unpack('B*').join("")
     ids = []
     bitstring.each_char.each_with_index{|c, i| c == "1" ? ids.push(i) : nil}
     ids
-    # document_ids
   end
 
 
